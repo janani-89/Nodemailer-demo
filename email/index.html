@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email using nodeJS</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<h1>Mailer using Node.js</h1>
+	TO:  <input id="to" type="email" placeholder="enter the emailID here"> <br/> <br/>
+	Subject:<input type="text" id="subject" placeholder="enter the subject "> <br/> <br/>
+	<textarea id="content" cols="20" rows="5" placeholder="content of the mail goes here"></textarea><br/> <br/>
+	<button id="send" >Send Email </button>
+	<span id="message"></span>
+</div>
+<script>
+$(document).ready(function(){
+	var from,to,subject,text;
+	$("#send").click(function(){
+		to = $("#to").val();
+		subject = $("#subject").val();
+		text= $("#content").val();
+		$("#message").text("sending email....please wait!");
+		$.get('http://localhost:3000/send',{to:to,subject:subject,text:text},function(data){
+			if(data=="sent"){
+				$("#message").empty().html("email is sent to"+to+"please check your inbox");
+			}
+		});
+	});
+});
+</script>
+</body>
+</html>

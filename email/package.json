@@ -1,0 +1,15 @@
+{
+  "name": "email",
+  "version": "1.0.0",
+  "description": "sending email using node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "janani ravi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "nodemailer": "^3.1.7"
+  }
+}
